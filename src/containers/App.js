@@ -12,7 +12,7 @@ const App = () => {
       <Route exact path="/submit" component={Submit} />
       <Route exact path="/about" component={About} />
 
-      <Route exact path="/category:title?" component={About} />
+      <Route exact path="/category:category?" component={About} />
       <Route exact path="/link:title?" component={About} />
     </div>
   );

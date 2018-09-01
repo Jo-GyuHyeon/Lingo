@@ -1,9 +1,9 @@
 import React from 'react';
-
+import CategoryListContainer from '../containers/CategoryListContainer';
 const Home = () => {
   return (
     <div>
-      Welcom to Lingo!!
+      <CategoryListContainer />
     </div>
   );
 };
