@@ -7,7 +7,7 @@ const CategoryList = ({ categorys, onInsert, onRemove }) => {
 
   const categoryList = categorys.map(
     category => {
-      console.log(category);
+      //console.log(category);
       return (
         <Category
         key={category.get('id')}
