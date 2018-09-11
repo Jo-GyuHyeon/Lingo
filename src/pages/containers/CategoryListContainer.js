@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import CategoryList from "../component/CategoryList";
+import CategoryList from "./component/CategoryList";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import * as categoryActions from "../reducers/categories";
+import * as categoryActions from "../..//reducers/categories";
 
 class CategoryListContainer extends Component {
   handelInsert = () => {

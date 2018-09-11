@@ -1,5 +1,5 @@
 import React from 'react';
-import CategoryListContainer from '../containers/CategoryListContainer';
+import CategoryListContainer from './containers/CategoryListContainer';
 const HomePage = () => {
   return (
     <div>

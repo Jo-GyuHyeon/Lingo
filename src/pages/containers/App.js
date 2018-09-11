@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { HomePage,SubscribePage,SubmitPage, AboutPage, CategoryPage, LinkPage } from 'pages';
-import Menu from '../component/Menu';
+import Menu from './component/Menu';
 
 const App = () => {
   return (

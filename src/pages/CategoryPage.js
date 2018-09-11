@@ -1,5 +1,5 @@
 import React from 'react';
-import LinkListContainer from '../containers/LinkListContainer'
+import LinkListContainer from './containers/LinkListContainer'
 
 const CategoryPage = ({match}) => {
   const category = match.params.category;

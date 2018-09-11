@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Root from './containers/Root';
+import Root from './pages/containers/Root';
 import registerServiceWorker from './registerServiceWorker';
 
 // Redux 관련 불러오기

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import LinkList from "../component/LinkList";
+import LinkList from "./component/LinkList";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import * as linkActions from "../reducers/links";
+import * as linkActions from "../../reducers/links";
 
 class LinkListContainer extends Component {
   handelInsert = () => {
