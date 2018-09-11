@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Submit = () => {
+const LinkPage = () => {
   return (
     <div>
-      Submit page
+      Link page
     </div>
   );
 };
 
-export default Submit;
+export default LinkPage;

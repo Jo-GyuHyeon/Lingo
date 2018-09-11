@@ -1,7 +1,7 @@
-export { default as Home } from './Home'
-export { default as Subscribe } from './Subscribe'
-export { default as Submit } from './Submit'
-export { default as About } from './About'
+export { default as HomePage } from './HomePage'
+export { default as SubscribePage } from './SubscribePage'
+export { default as SubmitPage } from './SubmitPage'
+export { default as AboutPage } from './AboutPage'
 
-export { default as Category } from './Category'
-export { default as Link } from './Link'
+export { default as CategoryPage } from './CategoryPage'
+export { default as LinkPage } from './LinkPage'

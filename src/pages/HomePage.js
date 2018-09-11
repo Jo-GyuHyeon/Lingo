@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryListContainer from '../containers/CategoryListContainer';
-const Home = () => {
+const HomePage = () => {
   return (
     <div>
       <CategoryListContainer />
@@ -8,4 +8,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

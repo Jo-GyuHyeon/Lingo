@@ -1,10 +1,10 @@
-import categorys from './categorys';
+import categories from './categories';
 import links from './links';
 import { combineReducers } from 'redux';
 
 
 const reducers = combineReducers({
-    categorys: categorys,
+    categories: categories,
     links: links
 });
 

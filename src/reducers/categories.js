@@ -1,8 +1,8 @@
 import { Map, List } from 'immutable';
 import { handleActions, createAction } from 'redux-actions';
 
-const INSERT = 'catagorys/INSERT';
-const REMOVE = 'catagorys/REMOVE';
+const INSERT = 'categories/INSERT';
+const REMOVE = 'categories/REMOVE';
 
 export const insert = createAction(INSERT);
 export const remove = createAction(REMOVE);

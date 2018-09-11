@@ -3,9 +3,9 @@ import React from 'react';
 import Category from './Category';
 
 
-const CategoryList = ({ categorys, onInsert, onRemove }) => {
+const CategoryList = ({ categories, onInsert, onRemove }) => {
 
-  const categoryList = categorys.map(
+  const categoryList = categories.map(
     category => {
       //console.log(category);
       return (

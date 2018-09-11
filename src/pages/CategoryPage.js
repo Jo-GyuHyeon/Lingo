@@ -1,7 +1,7 @@
 import React from 'react';
 import LinkListContainer from '../containers/LinkListContainer'
 
-const Category = ({match}) => {
+const CategoryPage = ({match}) => {
   const category = match.params.category;
   return (
     <div>
@@ -13,4 +13,4 @@ const Category = ({match}) => {
   );
 };
 
-export default Category;
+export default CategoryPage;

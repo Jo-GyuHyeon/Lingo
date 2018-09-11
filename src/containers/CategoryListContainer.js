@@ -4,7 +4,7 @@ import CategoryList from "../component/CategoryList";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import * as categoryActions from "../reducers/categorys";
+import * as categoryActions from "../reducers/categories";
 
 class CategoryListContainer extends Component {
   handelInsert = () => {
@@ -16,13 +16,13 @@ class CategoryListContainer extends Component {
     CategoryActions.remove(id);
   };
   render() {
-    const { categorys } = this.props;
+    const { categories } = this.props;
     const { handelInsert, handelRemove } = this;
     return (
       <div>
-        <CategoryList 
-          categorys={categorys}
-          onInsert={handelInsert} 
+        <CategoryList
+          categories={categories}
+          onInsert={handelInsert}
           onRemove={handelRemove} />
       </div>
     );
@@ -31,7 +31,7 @@ class CategoryListContainer extends Component {
 
 export default connect(
   (state) => ({
-    categorys: state.categorys
+    categories: state.categories
   }),
   (dispatch) => ({
     CategoryActions: bindActionCreators(categoryActions, dispatch)
