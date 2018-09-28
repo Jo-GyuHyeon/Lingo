@@ -4,12 +4,12 @@ import CategoryList from "./component/CategoryList";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import * as categoryActions from "../..//reducers/categories";
+import * as categoryActions from "../../reducers/categories";
 
 class CategoryListContainer extends Component {
-  handelInsert = () => {
-    // const{CategoryActions,category} = this.props;
-    // CategoryActions.insert(category);
+  handelInsert = (category) => {
+    const{CategoryActions} = this.props;
+    CategoryActions.insert(category);
   };
   handelRemove = id => {
     const { CategoryActions } = this.props;
@@ -18,6 +18,7 @@ class CategoryListContainer extends Component {
   render() {
     const { categories } = this.props;
     const { handelInsert, handelRemove } = this;
+    console.log(categories)
     return (
       <div>
         <CategoryList

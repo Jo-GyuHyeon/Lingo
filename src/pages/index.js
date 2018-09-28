@@ -1,5 +1,5 @@
 export { default as HomePage } from './HomePage'
-export { default as SubscribePage } from './SubscribePage'
+export { default as MyPage } from './MyPage'
 export { default as SubmitPage } from './SubmitPage'
 export { default as AboutPage } from './AboutPage'
 
