@@ -87,7 +87,7 @@ export default handleActions(
       const { category, image } = action.payload;
       
       const index = state.findIndex(
-        element => element.get("category") === category
+        item => item.get("category") === category
       );
 
       if(index === -1){
@@ -99,12 +99,14 @@ export default handleActions(
             image
           })
         );
+      }else{
+        return state;
       }
       
     },
     [REMOVE]: (state, action) => {
       const id = action.payload;
-      const index = state.findIndex(category => category.get("id") === id);
+      const index = state.findIndex(item => item.get("id") === id);
       return state.delete(index);
     }
   },

@@ -26,7 +26,8 @@ class LinkListContainer extends Component {
             link => link.get('category') === category)
           }
           onInsert={handelInsert} 
-          onRemove={handelRemove} />
+          onRemove={handelRemove} 
+        />
       </div>
     );
   }

@@ -13,7 +13,7 @@ const Category = ({ id, category, image, onRemove, location }) => {
   return (
     <div>
       <Link to={linkUrl}>
-        <img src={image} alt='description' width='80px' height='80px' />
+        <img src={image} alt='' width='80px' height='80px' />
         <span>{category}</span>
       </Link>
       {pathname === '/myPage' && <button onClick={handelRemove}>제거</button>}

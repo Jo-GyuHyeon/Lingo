@@ -3,7 +3,7 @@ import Link from './Link';
 // import PropTypes from 'prop-types';
 
 
-const LinkList = ({ links, category, onInsert, onRemove }) => {
+const LinkList = ({ links }) => {
 
   const LinkList = links.map(
     link => {
@@ -14,6 +14,7 @@ const LinkList = ({ links, category, onInsert, onRemove }) => {
           title={link.get('title')}
           category={link.get('category')}
           url={link.get('url')}
+          hash_tag={link.get('hash_tag')}
         />
       )
     }
