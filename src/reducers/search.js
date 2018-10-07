@@ -1,11 +1,11 @@
-import { Map } from 'immutable';
+import { fromJS } from "immutable";
 import { handleActions, createAction } from 'redux-actions';
 
 const SET_INPUT = 'search/SET_INPUT';
 
 export const set_input = createAction(SET_INPUT);
 
-const initialState = Map({
+const initialState = fromJS({
     keyword: '',
     selectedKey: -1,
 })

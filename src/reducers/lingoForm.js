@@ -1,11 +1,11 @@
-import { Map } from 'immutable';
+import {fromJS} from "immutable";
 import { handleActions, createAction } from 'redux-actions';
 
 const SET_INPUT = 'lingoFrom/SET_INPUT';
 
 export const set_input = createAction(SET_INPUT);
 
-const initialState = Map({
+const initialState = fromJS({
     category: '',
     hash_tag: '',
     title: '',
