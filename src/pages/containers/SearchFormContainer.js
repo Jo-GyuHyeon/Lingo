@@ -34,11 +34,11 @@ class SearchFormContainer extends Component {
 
 
     return links.filter((item) => {
-      const hash_tags = item.get('hash_tag').split(' ');
-      const count = hash_tags.length;
+      const hashTags = item.get('hashTag').split(' ');
+      const count = hashTags.length;
 
       for (let i = 0; i < count; i++) {
-        if (keywords.indexOf(hash_tags[i]) !== -1) {
+        if (keywords.indexOf(hashTags[i]) !== -1) {
           return true;
         }
       }

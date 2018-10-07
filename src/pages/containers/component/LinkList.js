@@ -14,7 +14,7 @@ const LinkList = ({ links }) => {
           title={link.get('title')}
           category={link.get('category')}
           url={link.get('url')}
-          hash_tag={link.get('hash_tag')}
+          hashTag={link.get('hashTag')}
         />
       )
     }

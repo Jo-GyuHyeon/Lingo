@@ -10,8 +10,8 @@ const LingoForm = ({ setInput, onInsert }) => {
         onChange={setInput}
       />
       <input
-        name='hash_tag'
-        placeholder='hash_tag'
+        name='hashTag'
+        placeholder='hashTag'
         onChange={setInput}
       />
       <input

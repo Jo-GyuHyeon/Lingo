@@ -23,8 +23,8 @@ class LingoFromContainer extends Component {
     const title = lingoForm.get('title');
     const category = lingoForm.get('category');
     const url = lingoForm.get('url');
-    const hash_tag = lingoForm.get('hash_tag');
-    LinksActions.insert({ title, category, url, hash_tag });
+    const hashTag = lingoForm.get('hashTag');
+    LinksActions.insert({ title, category, url, hashTag });
 
     const image = lingoForm.get('image');
     CategoryActions.insert({ category, image });
