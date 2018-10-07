@@ -85,20 +85,21 @@ const initialState = fromJS([
 
 export default handleActions({
   [INSERT]: (state, action) => {
-    const { category, hashTag, title, url } = action.payload;
+    const { category, title, url } = action.payload;
+    let hashTag = action.payload;
     id += 1;
     const regex = /#[^\s]*/g;
-    let hashTags = hashTag.toLowerCase().match(regex);
+    hashTag = hashTag.toLowerCase().match(regex);
 
-    if (hashTags !== null) {
-      hashTags = hashTags.filter((hashTag, idx, array) => {
+    if (hashTag !== null) {
+      hashTag = hashTag.filter((hashTag, idx, array) => {
         return array.indexOf(hashTag) === idx && hashTag.length > 1
       })
     }
     return state.push(Map({
       id,
       category,
-      hashTag: hashTags,
+      hashTag,
       title,
       url,
 
@@ -106,11 +107,11 @@ export default handleActions({
   },
   [REMOVE]: (state, action) => {
     const { index, category } = action.payload;
-    if (index !== undefined) {
-      return state.delete(index);
-    } else {
+    if (typeof category === "string") {
       return state.filter(item => item.get('category') !== category)
     }
-
+    if (typeof index === "number") {
+      return state.delete(index);
+    }
   }
 }, initialState)
