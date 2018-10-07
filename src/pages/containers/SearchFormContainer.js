@@ -12,23 +12,22 @@ class SearchFormContainer extends Component {
 
   handleSetInput = (e) => {
     const { SearchActions } = this.props;
-    const key = e.target.name;
-    const value = e.target.value;
+    const tag = e.target.value;
 
-    SearchActions.set_input({ key, value });
+    SearchActions.set_input({ tag });
   }
 
   handleFilter = (links, search) => {
-    const keyword = search.get('keyword');
+    const keyword = search.get('hashTag');
 
     const regex = /#[^\s]*/g;
-    let keywords = keyword.match(regex);
+    let tags = keyword.match(regex);
 
-    if (keywords === null) {
+    if (tags === null) {
       return [];
     }
 
-    keywords = keywords.filter((keyword, idx, array) => {
+    tags = tags.filter((keyword, idx, array) => {
       return array.indexOf(keyword) === idx && keyword.length > 1
     })
 
@@ -38,7 +37,7 @@ class SearchFormContainer extends Component {
       const count = hashTags.length;
 
       for (let i = 0; i < count; i++) {
-        if (keywords.indexOf(hashTags[i]) !== -1) {
+        if (tags.indexOf(hashTags[i]) !== -1) {
           return true;
         }
       }
