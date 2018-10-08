@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class SearchForm extends Component {
+const SearchForm = ({ setInput }) => {
 
-  render() {
-    const { setInput } = this.props;
-    return (
-      <div>
-        <input
-          name='keyword'
-          placeholder='ex) #개발 검색...'
-          onChange={setInput}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <input
+        name='keyword'
+        placeholder='ex) #개발 검색...'
+        onChange={setInput}
+      />
+    </div>
+  );
 }
 
 export default SearchForm;
-

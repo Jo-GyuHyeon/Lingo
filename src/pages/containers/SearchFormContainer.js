@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import SearchForm from './component/SearchForm'
+import React, { Component } from "react";
+import SearchForm from "./component/SearchForm";
 import LinkList from "./component/LinkList";
 
 import { connect } from "react-redux";
@@ -8,17 +8,22 @@ import { bindActionCreators } from "redux";
 import * as linksActions from "../../reducers/links";
 import * as searchActions from "../../reducers/search";
 
-class SearchFormContainer extends Component {
+let timer;
 
-  handleSetInput = (e) => {
+class SearchFormContainer extends Component {
+  handleSetInput = e => {
     const { SearchActions } = this.props;
     const tag = e.target.value;
-
-    SearchActions.set_input({ tag });
-  }
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+      SearchActions.set_input({ tag });
+    }, 2000);
+  };
 
   handleFilter = (links, search) => {
-    const keyword = search.get('hashTag');
+    const keyword = search.get("hashTag");
 
     const regex = /#[^\s]*/g;
     let tags = keyword.match(regex);
@@ -28,12 +33,11 @@ class SearchFormContainer extends Component {
     }
 
     tags = tags.filter((keyword, idx, array) => {
-      return array.indexOf(keyword) === idx && keyword.length > 1
-    })
+      return array.indexOf(keyword) === idx && keyword.length > 1;
+    });
 
-
-    return links.filter((item) => {
-      const hashTags = item.get('hashTag').split(' ');
+    return links.filter(item => {
+      const hashTags = item.get("hashTag").split(" ");
       const count = hashTags.length;
 
       for (let i = 0; i < count; i++) {
@@ -43,7 +47,7 @@ class SearchFormContainer extends Component {
       }
       return false;
     });
-  }
+  };
 
   render() {
     const { search, links } = this.props;
@@ -51,23 +55,19 @@ class SearchFormContainer extends Component {
 
     return (
       <div>
-        <SearchForm
-          setInput={handleSetInput}
-        />
-        <LinkList
-          links={handleFilter(links, search)}
-        />
+        <SearchForm setInput={handleSetInput} />
+        <LinkList links={handleFilter(links, search)} />
       </div>
     );
   }
 }
 
 export default connect(
-  (state) => ({
+  state => ({
     search: state.search,
-    links: state.links,
+    links: state.links
   }),
-  (dispatch) => ({
+  dispatch => ({
     SearchActions: bindActionCreators(searchActions, dispatch),
     LinksActions: bindActionCreators(linksActions, dispatch)
   })
