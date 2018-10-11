@@ -23,7 +23,7 @@ class SearchFormContainer extends Component {
   };
 
   handleFilter = (links, search) => {
-    const keyword = search.get("hashTag");
+    const keyword = search.get("hashtag");
 
     const regex = /#[^\s]*/g;
     let tags = keyword.match(regex);
@@ -37,7 +37,7 @@ class SearchFormContainer extends Component {
     });
 
     return links.filter(item => {
-      const hashTags = item.get("hashTag").split(" ");
+      const hashTags = item.get("hashtag").split(" ");
       const count = hashTags.length;
 
       for (let i = 0; i < count; i++) {

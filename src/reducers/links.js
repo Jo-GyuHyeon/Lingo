@@ -15,70 +15,70 @@ const initialState = fromJS([
     title: 'Python',
     category: '개발',
     url: 'https://www.udemy.com/complete-python-bootcamp/',
-    hashTag: '#Python #개발'
+    hashtag: '#Python #개발'
   },
   {
     id: 1,
     title: 'angular2',
     category: '개발',
     url: 'https://www.udemy.com/the-complete-guide-to-angular-2/',
-    hashTag: '#angular2 #개발'
+    hashtag: '#angular2 #개발'
   },
   {
     id: 2,
     title: '하나의 강좌에 MBA 과정',
     category: '비지니스',
     url: 'https://www.udemy.com/korean-an-antire-mba-in-1-course/',
-    hashTag: '#MBA #비지니스'
+    hashtag: '#MBA #비지니스'
   },
   {
     id: 3,
     title: '베트남 비즈니스 성공하기',
     category: '비지니스',
     url: 'https://www.udemy.com/vietnam_business_tips_for_korean/',
-    hashTag: '#베트남 #비지니스'
+    hashtag: '#베트남 #비지니스'
   },
   {
     id: 4,
     title: 'Oracle Database',
     category: 'IT및 소프트웨어',
     url: 'https://www.udemy.com/oracle-database-12c-backup-and-recovery-using-rman/',
-    hashTag: '#it #오라클'
+    hashtag: '#it #오라클'
   },
   {
     id: 5,
     title: 'The Complete Cyber Security Course',
     category: 'IT및 소프트웨어',
     url: 'https://www.udemy.com/the-complete-internet-security-privacy-course-volume-1/',
-    hashTag: '#id'
+    hashtag: '#id'
   },
   {
     id: 6,
     title: 'Illustrator CC 2018 MasterClass',
     category: '디자인',
     url: 'https://www.udemy.com/illustrator-cc-masterclass/',
-    hashTag: '#디자인 #2018'
+    hashtag: '#디자인 #2018'
   },
   {
     id: 7,
     title: 'Art Fundamentals: Drawing and Painting Essentials',
     category: '디자인',
     url: 'https://www.udemy.com/art-fundamentals-drawing-and-painting-essentials/',
-    hashTag: '#디자인 #drawing'
+    hashtag: '#디자인 #drawing'
   },
   {
     id: 8,
     title: 'Instagram Marketing 2018',
     category: '마케팅',
     url: 'https://www.udemy.com/instagram-marketing-for-small-businesses/',
-    hashTag: '#마케팅 #instagram'
+    hashtag: '#마케팅 #instagram'
   },
   {
     id: 9,
     title: '네이버 마케팅',
     category: '마케팅',
     url: 'https://www.udemy.com/guide_to_naver_maketing_with_keyword/',
-    hashTag: '#마케팅 #네이버'
+    hashtag: '#마케팅 #네이버'
   },
 
 ])
@@ -86,20 +86,20 @@ const initialState = fromJS([
 export default handleActions({
   [INSERT]: (state, action) => {
     const { category, title, url } = action.payload;
-    let hashTag = action.payload;
+    let hashtag = action.payload;
     id += 1;
     const regex = /#[^\s]*/g;
-    hashTag = hashTag.toLowerCase().match(regex);
+    hashtag = hashtag.toLowerCase().match(regex);
 
-    if (hashTag !== null) {
-      hashTag = hashTag.filter((hashTag, idx, array) => {
-        return array.indexOf(hashTag) === idx && hashTag.length > 1
+    if (hashtag !== null) {
+      hashtag = hashtag.filter((hashtag, idx, array) => {
+        return array.indexOf(hashtag) === idx && hashtag.length > 1
       })
     }
     return state.push(Map({
       id,
       category,
-      hashTag,
+      hashtag,
       title,
       url,
 

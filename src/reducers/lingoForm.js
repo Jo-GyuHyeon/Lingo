@@ -7,7 +7,7 @@ export const set_input = createAction(SET_INPUT);
 
 const initialState = fromJS({
     category: '',
-    hashTag: '',
+    hashtag: '',
     title: '',
     url:'',
     image: ''
