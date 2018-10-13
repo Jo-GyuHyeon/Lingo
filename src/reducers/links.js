@@ -1,4 +1,4 @@
-import { fromJS } from "immutable";
+import { fromJS } from 'immutable';
 import { handleActions, createAction } from 'redux-actions';
 
 const INSERT = 'links/INSERT';
@@ -42,14 +42,16 @@ const initialState = fromJS([
     id: 4,
     title: 'Oracle Database',
     category: 'IT및 소프트웨어',
-    url: 'https://www.udemy.com/oracle-database-12c-backup-and-recovery-using-rman/',
+    url:
+      'https://www.udemy.com/oracle-database-12c-backup-and-recovery-using-rman/',
     hashtag: '#it #오라클'
   },
   {
     id: 5,
     title: 'The Complete Cyber Security Course',
     category: 'IT및 소프트웨어',
-    url: 'https://www.udemy.com/the-complete-internet-security-privacy-course-volume-1/',
+    url:
+      'https://www.udemy.com/the-complete-internet-security-privacy-course-volume-1/',
     hashtag: '#id'
   },
   {
@@ -63,7 +65,8 @@ const initialState = fromJS([
     id: 7,
     title: 'Art Fundamentals: Drawing and Painting Essentials',
     category: '디자인',
-    url: 'https://www.udemy.com/art-fundamentals-drawing-and-painting-essentials/',
+    url:
+      'https://www.udemy.com/art-fundamentals-drawing-and-painting-essentials/',
     hashtag: '#디자인 #drawing'
   },
   {
@@ -79,39 +82,39 @@ const initialState = fromJS([
     category: '마케팅',
     url: 'https://www.udemy.com/guide_to_naver_maketing_with_keyword/',
     hashtag: '#마케팅 #네이버'
-  },
-
-])
-
-export default handleActions({
-  [INSERT]: (state, action) => {
-    const { category, title, url } = action.payload;
-    let hashtag = action.payload;
-    id += 1;
-    const regex = /#[^\s]*/g;
-    hashtag = hashtag.toLowerCase().match(regex);
-
-    if (hashtag !== null) {
-      hashtag = hashtag.filter((hashtag, idx, array) => {
-        return array.indexOf(hashtag) === idx && hashtag.length > 1
-      })
-    }
-    return state.push(Map({
-      id,
-      category,
-      hashtag,
-      title,
-      url,
-
-    }))
-  },
-  [REMOVE]: (state, action) => {
-    const { index, category } = action.payload;
-    if (typeof category === "string") {
-      return state.filter(item => item.get('category') !== category)
-    }
-    if (typeof index === "number") {
-      return state.delete(index);
-    }
   }
-}, initialState)
+]);
+
+export default handleActions(
+  {
+    [INSERT]: (state, action) => {
+      const { category, title, url } = action.payload;
+      let { hashtag } = action.payload;
+      id += 1;
+      const regex = /#[^\s]*/g;
+      hashtag = hashtag.toLowerCase().match(regex);
+
+      if (hashtag) {
+        hashtag = hashtag.filter((hashtag, idx, array) => {
+          return array.indexOf(hashtag) === idx && hashtag.length > 1;
+        });
+      } else {
+        hashtag = '';
+      }
+      return state.push(
+        fromJS({
+          id,
+          category,
+          hashtag,
+          title,
+          url
+        })
+      );
+    },
+    [REMOVE]: (state, action) => {
+      const { category } = action.payload;
+      return state.filter(item => item.get('category') !== category);
+    }
+  },
+  initialState
+);

@@ -1,12 +1,19 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { HomePage,MyPage,SubmitPage, AboutPage, CategoryPage, LinkPage } from 'pages';
+import {
+  HomePage,
+  MyPage,
+  SubmitPage,
+  AboutPage,
+  CategoryPage,
+  LinkPage
+} from 'pages';
 import Menu from './component/Menu';
 
 const App = () => {
   return (
     <div>
-      <Menu/>
+      <Menu />
       <Route exact path="/" component={HomePage} />
       <Route exact path="/myPage" component={MyPage} />
       <Route exact path="/submit" component={SubmitPage} />

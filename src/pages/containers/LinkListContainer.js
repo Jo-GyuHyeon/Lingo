@@ -1,32 +1,24 @@
-import React, { Component } from "react";
-import LinkList from "./component/LinkList";
+import React, { Component } from 'react';
+import LinkList from './component/LinkList';
 
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import * as linkActions from "../../reducers/links";
+import * as linkActions from '../../reducers/links';
 
 class LinkListContainer extends Component {
-  handelInsert = () => {
-    // const{LinkActions,links} = this.props;
-    // LinkActions.insert(links);
-  };
-  handelRemove = id => {
+  handelRemove(id) {
     const { linkActions } = this.props;
     linkActions.remove(id);
-  };
+  }
   render() {
     const { links, category } = this.props;
-    const { handelInsert, handelRemove } = this;
+    const { handelRemove } = this;
     return (
-      
       <div>
-        <LinkList 
-          links={links.filter(
-            link => link.get('category') === category)
-          }
-          onInsert={handelInsert} 
-          onRemove={handelRemove} 
+        <LinkList
+          links={links.filter(link => link.get('category') === category)}
+          onRemove={() => handelRemove()}
         />
       </div>
     );
@@ -34,10 +26,10 @@ class LinkListContainer extends Component {
 }
 
 export default connect(
-  (state) => ({
+  state => ({
     links: state.links
   }),
-  (dispatch) => ({
+  dispatch => ({
     LinkActions: bindActionCreators(linkActions, dispatch)
   })
 )(LinkListContainer);
